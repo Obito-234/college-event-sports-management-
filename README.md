@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# Sports Management Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web application for managing sports events, matches, and user administration.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User Management**: Multi-role authentication system (main admin, sport admin)
+- **Sports Management**: CRUD operations for different sports
+- **Event Management**: Create and manage sports events
+- **Match Management**: Track matches and results
+- **Gallery**: Image management for sports and events
+- **Contact System**: User contact form and management
+- **Admin Panel**: Comprehensive admin dashboard
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- React.js
+- Tailwind CSS
+- React Router
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT Authentication
+- bcrypt for password hashing
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+p1/
+├── backend/           # Backend API server
+│   ├── api/          # API routes
+│   ├── config/       # Database configuration
+│   ├── middleware/   # Authentication middleware
+│   ├── models/       # MongoDB schemas
+│   └── server.js     # Main server file
+├── frontend/         # Frontend React application
+│   └── src/
+│       ├── components/   # React components
+│       └── pages/        # Page components
+└── src/              # Main React application
+    ├── components/   # UI components
+    ├── pages/        # Page components
+    └── data/         # Static data
+```
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB
+- Git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend Setup
+```bash
+cd backend
+npm install
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frontend Setup
+```bash
+npm install
+npm start
+```
 
-### `npm run eject`
+## Environment Variables
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create a `.env` file in the backend directory:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=5000
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## API Endpoints
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Authentication
+- `POST /api/auth/login` - User login
+- `POST /api/auth/register` - User registration
 
-## Learn More
+### Sports
+- `GET /api/sports` - Get all sports
+- `POST /api/sports` - Create new sport
+- `PUT /api/sports/:id` - Update sport
+- `DELETE /api/sports/:id` - Delete sport
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Events
+- `GET /api/events` - Get all events
+- `POST /api/events` - Create new event
+- `PUT /api/events/:id` - Update event
+- `DELETE /api/events/:id` - Delete event
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Matches
+- `GET /api/matches` - Get all matches
+- `POST /api/matches` - Create new match
+- `PUT /api/matches/:id` - Update match
+- `DELETE /api/matches/:id` - Delete match
 
-### Code Splitting
+## User Roles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **Main Admin**: Full access to all features
+2. **Sport Admin**: Limited access to assigned sports only
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.
