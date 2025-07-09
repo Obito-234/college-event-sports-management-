@@ -23,8 +23,6 @@ A full-stack web application for managing sports events, matches, and user admin
 - Node.js
 - Express.js
 - MongoDB with Mongoose
-- JWT Authentication
-- bcrypt for password hashing
 
 ## Project Structure
 
@@ -49,7 +47,7 @@ p1/
 ## Installation
 
 ### Prerequisites
-- Node.js (v14 or higher)
+- Node.js 
 - MongoDB
 - Git
 
