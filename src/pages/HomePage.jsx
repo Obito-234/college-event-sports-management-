@@ -4,13 +4,11 @@ import EventsSection from "../components/EventsSection";
 import SportsSection from "../components/SportsSection";
 
 function InfiniteGalleryRow({ images, reverse = false, duration = 40 }) {
-  // Responsive image size for mobile/desktop
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
   const imageWidth = isMobile ? 160 : 280;
   const imageHeight = isMobile ? 100 : 200;
   const imageGap = isMobile ? 16 : 36; // gap-4 or gap-9
 
-  // Duplicate images for seamless infinite scroll
   const allImages = [...images, ...images];
   const totalWidth = allImages.length * imageWidth + (allImages.length - 1) * imageGap;
 

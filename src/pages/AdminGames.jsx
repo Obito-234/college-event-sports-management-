@@ -36,7 +36,7 @@ export default function AdminGames() {
     name: '',
     position: '',
     number: '',
-    team: 'home' // 'home' or 'away'
+    team: 'home' 
   });
 
   const navigate = useNavigate();
@@ -136,7 +136,6 @@ export default function AdminGames() {
       }
     }));
 
-    // Reset player form
     setPlayerFormData({
       name: '',
       position: '',
@@ -158,7 +157,7 @@ export default function AdminGames() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(''); // Clear any previous errors
+    setError(''); 
 
     try {
       const token = localStorage.getItem('token');
@@ -194,7 +193,6 @@ export default function AdminGames() {
           );
           setGames(updatedGames);
         } else {
-          // For new games, fetch the updated list
           await fetchGames();
         }
         
@@ -326,7 +324,7 @@ export default function AdminGames() {
   };
 
   const savePlayers = async () => {
-    setError(''); // Clear any previous errors
+    setError(''); 
     
     try {
       const token = localStorage.getItem('token');
@@ -343,7 +341,6 @@ export default function AdminGames() {
       });
 
       if (response.ok) {
-        // Update the games list with the new data
         const updatedGames = games.map(game => 
           game._id === selectedGame._id 
             ? { ...game, players: localPlayers }
@@ -351,7 +348,6 @@ export default function AdminGames() {
         );
         setGames(updatedGames);
         
-        // Close the modal
         closePlayerModal();
       } else {
         const data = await response.json();

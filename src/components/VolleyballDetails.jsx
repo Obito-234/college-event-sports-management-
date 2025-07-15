@@ -8,7 +8,6 @@ export default function VolleyballDetails({ match, onBack }) {
   return (
     <div className="px-1 pt-4 pb-4 sm:p-8 max-w-3xl mx-auto space-y-6 relative">
       <h1 className="text-3xl sm:text-4xl font-bold">{match.match}</h1>
-      {/* Match info below the title */}
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 mb-2 text-gray-700 text-base">
         <div className="flex flex-row justify-between items-center w-full">
           <span className="flex flex-col">
@@ -51,7 +50,6 @@ export default function VolleyballDetails({ match, onBack }) {
           </div>
         </div>
       </div>
-      {/* Sets as separate cards */}
       {Array.isArray(match.sets) && (
         <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-2 mt-2">
           {match.sets.map((set, i) => {
@@ -80,7 +78,6 @@ export default function VolleyballDetails({ match, onBack }) {
       {(homePlayers.length > 0 && awayPlayers.length > 0) && (
         <div className="bg-gray-100 rounded-lg p-4 shadow mt-4">
           <h2 className="text-lg sm:text-xl font-bold mb-2 text-center">Players</h2>
-          {/* Mobile: show only one team at a time, Desktop: show both columns */}
           <div className="block sm:hidden">
             <div className="flex gap-4 justify-center mb-4">
               <button
@@ -135,7 +132,6 @@ export default function VolleyballDetails({ match, onBack }) {
               )}
             </div>
           </div>
-          {/* Desktop: show both teams side by side */}
           <div className="hidden sm:grid sm:grid-cols-2 sm:gap-x-8">
             <div>
               <div className="font-semibold text-blue-900 mb-2 text-right text-xl">{match.teams?.home}</div>

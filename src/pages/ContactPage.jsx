@@ -48,9 +48,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center p-6 bg-gradient-to-br from-blue-50 via-yellow-50 to-pink-100">
       <div className="max-w-3xl w-full bg-white/90 backdrop-blur rounded-2xl p-8 shadow-2xl space-y-10 border border-blue-100">
-        {/* Header Section with Photo and Personal Info */}
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8">
-          {/* Photo */}
           <div className="flex-shrink-0 flex justify-center">
             <img
               src="https://randomuser.me/api/portraits/men/32.jpg"

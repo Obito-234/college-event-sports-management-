@@ -31,7 +31,6 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Sport'
   }],
-  // For sport admins, specify sport names they can manage
   sportNames: [{
     type: String,
     trim: true

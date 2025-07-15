@@ -24,7 +24,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Add a new event (Protected - Admin only)
+// Add a new event 
 router.post("/", authenticateToken, requireAdmin, async (req, res) => {
   try {
     const { title, date, venue, description, imageUrl, registrationLink, category } = req.body;
@@ -50,7 +50,7 @@ router.post("/", authenticateToken, requireAdmin, async (req, res) => {
   }
 });
 
-// Update an event (Protected - Admin only)
+// Update an event 
 router.put("/:id", authenticateToken, requireAdmin, async (req, res) => {
   try {
     const event = await Event.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
@@ -61,7 +61,7 @@ router.put("/:id", authenticateToken, requireAdmin, async (req, res) => {
   }
 });
 
-// Delete an event (Protected - Admin only)
+// Delete an event 
 router.delete("/:id", authenticateToken, requireAdmin, async (req, res) => {
   try {
     const event = await Event.findByIdAndDelete(req.params.id);

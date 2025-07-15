@@ -163,7 +163,7 @@ export default function AdminDashboard() {
             </Link>
           </div>
           
-          {/* Additional Actions */}
+          {/* Other Actions */}
           <div className="mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link
@@ -185,7 +185,6 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* User Management (Main Admin Only) */}
         {user.role === 'main_admin' && (
           <div className="bg-white shadow rounded-lg">
             <div className="px-4 py-5 sm:p-6">
@@ -263,7 +262,6 @@ export default function AdminDashboard() {
           </div>
         )}
 
-        {/* Sport Admin Info */}
         {user.role === 'sport_admin' && (
           <div className="bg-white shadow rounded-lg">
             <div className="px-4 py-5 sm:p-6">

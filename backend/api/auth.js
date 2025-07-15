@@ -5,7 +5,6 @@ const { authenticateToken, requireMainAdmin } = require('../middleware/auth');
 
 const router = express.Router();
 
-// Generate JWT token
 const generateToken = (userId) => {
   return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '24h' });
 };
@@ -21,13 +20,12 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Email and password are required' });
     }
 
-    // Find user by email
+    // Find user 
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    // Check if user is active
     if (!user.isActive) {
       return res.status(401).json({ message: 'Account is deactivated' });
     }
@@ -45,7 +43,7 @@ router.post('/login', async (req, res) => {
     // Generate token
     const token = generateToken(user._id);
 
-    // Return user data (without password) and token
+    // Return data and token
     const userData = {
       id: user._id,
       username: user.username,
@@ -79,7 +77,6 @@ router.post('/register', authenticateToken, requireMainAdmin, async (req, res) =
       return res.status(400).json({ message: 'Username, email, and password are required' });
     }
 
-    // Check if user already exists
     const existingUser = await User.findOne({ 
       $or: [{ email }, { username }] 
     });
@@ -100,7 +97,7 @@ router.post('/register', authenticateToken, requireMainAdmin, async (req, res) =
 
     await user.save();
 
-    // Return user data (without password)
+    // Return user data 
     const userData = {
       id: user._id,
       username: user.username,
@@ -170,7 +167,6 @@ router.put('/users/:id', authenticateToken, requireMainAdmin, async (req, res) =
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Update fields
     if (username) user.username = username;
     if (email) user.email = email;
     if (role) user.role = role;
@@ -207,7 +203,6 @@ router.delete('/users/:id', authenticateToken, requireMainAdmin, async (req, res
   try {
     const userId = req.params.id;
 
-    // Prevent deleting self
     if (userId === req.user._id.toString()) {
       return res.status(400).json({ message: 'Cannot delete your own account' });
     }

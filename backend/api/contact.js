@@ -21,7 +21,6 @@ router.post("/", async (req, res) => {
 
     const savedContact = await newContact.save();
     
-    // In a real application, you would send an email here
     console.log("New contact message received:", savedContact);
     
     res.status(201).json({ 
@@ -33,7 +32,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Get all contact messages (admin only in real app)
 router.get("/", async (req, res) => {
   try {
     const contacts = await Contact.find().sort({ createdAt: -1 });
@@ -43,7 +41,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get a single contact message
 router.get("/:id", async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
@@ -56,7 +53,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Mark message as read
 router.patch("/:id/read", async (req, res) => {
   try {
     const contact = await Contact.findByIdAndUpdate(
@@ -75,7 +71,6 @@ router.patch("/:id/read", async (req, res) => {
   }
 });
 
-// Delete a contact message
 router.delete("/:id", async (req, res) => {
   try {
     const contact = await Contact.findByIdAndDelete(req.params.id);

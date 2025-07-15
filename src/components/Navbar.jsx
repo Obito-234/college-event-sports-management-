@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-// Helper to get page title from path
 const getPageTitle = (pathname) => {
   if (pathname === "/") return "Kurukestra";
   if (pathname.startsWith("/events")) return "Events";
@@ -24,7 +23,6 @@ export default function Navbar() {
     `transition-all duration-300 rounded-full px-4 py-2 transform hover:scale-105 active:scale-95 shadow-sm
     ${location.pathname === path ? "bg-yellow-300 text-black font-bold shadow-md" : "hover:bg-yellow-300 hover:text-black"}`;
 
-  // Close menu when clicking outside
   useEffect(() => {
     if (!isMenuOpen) return;
 
@@ -43,7 +41,6 @@ export default function Navbar() {
       setIsMenuOpen(false);
     }
 
-    // Close on route change (back/forward)
     function handlePopState() {
       setIsMenuOpen(false);
     }

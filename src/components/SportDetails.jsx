@@ -16,7 +16,7 @@ export default function SportDetails() {
         const sportData = await sportResponse.json();
         setSport(sportData);
 
-        // Fetch matches for this sport
+        // Fetch matches 
         const matchesResponse = await fetch(`/api/matches/${slug}`);
         const matchesData = await matchesResponse.json();
         setMatches(matchesData);
@@ -54,11 +54,9 @@ export default function SportDetails() {
     );
   }
 
-  // Split into ongoing and completed
   const ongoingGames = matches.filter((game) => game.status !== 'Completed');
   const completedGames = matches.filter((game) => game.status === 'Completed');
 
-  // Move these to top of the page
   const sortedGames = [...ongoingGames, ...completedGames];
 
   return (
@@ -93,7 +91,6 @@ export default function SportDetails() {
                 else if (result === '½-½') winner = 'Draw';
               }
 
-              // Card color classes for chess
               const isCompleted = game.status === 'Completed';
               const cardBg = isCompleted
                 ? "bg-gradient-to-br from-green-100 to-white border-green-200"
@@ -145,7 +142,6 @@ export default function SportDetails() {
                   ? 'Draw'
                   : null;
 
-              // Card color classes
               const cardBg = isCompleted
                 ? "bg-gradient-to-br from-pink-100 to-white border-pink-200"
                 : "bg-gradient-to-br from-yellow-100 to-white border-yellow-200";
@@ -183,7 +179,6 @@ export default function SportDetails() {
               );
             }
 
-            // Cricket-specific card
             if (slug === 'cricket') {
               const { home, away } = game.teams;
               const { home: homeScore, away: awayScore } = game.scores;
@@ -196,7 +191,6 @@ export default function SportDetails() {
                   ? 'Draw'
                   : null;
 
-              // Card color classes
               const cardBg = isCompleted
                 ? "bg-gradient-to-br from-blue-100 to-white border-blue-200"
                 : "bg-gradient-to-br from-yellow-100 to-white border-yellow-200";
@@ -234,7 +228,6 @@ export default function SportDetails() {
               );
             }
 
-            // Default card for other sports
             const { home, away } = game.teams;
             const { home: homeScore, away: awayScore } = game.scores || {};
             const isCompleted = game.status === 'Completed';
@@ -246,7 +239,6 @@ export default function SportDetails() {
                 ? 'Draw'
                 : null;
 
-            // Card color classes
             const cardBg = isCompleted
               ? "bg-gradient-to-br from-green-100 to-white border-green-200"
               : "bg-gradient-to-br from-yellow-100 to-white border-yellow-200";

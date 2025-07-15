@@ -8,7 +8,7 @@ export default function AdminSports() {
   const [error, setError] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [editingSport, setEditingSport] = useState(null);
-  const [activeTab, setActiveTab] = useState('join_sport'); // join_sport, normal_sport, event
+  const [activeTab, setActiveTab] = useState('join_sport');
   const [formData, setFormData] = useState({
     name: '',
     title: '',
@@ -183,7 +183,6 @@ export default function AdminSports() {
     setShowForm(true);
   };
 
-  // Helper to get event status based on date
   const getEventStatus = (eventDate) => {
     const now = new Date();
     const date = new Date(eventDate);
@@ -396,7 +395,6 @@ export default function AdminSports() {
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Common Fields for All Types */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Name *</label>

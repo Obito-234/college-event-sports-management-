@@ -11,7 +11,7 @@ export default function SportsSection() {
       .catch(() => setSports([]));
   }, []);
 
-  // Only show Cricket, Kabaddi, and Basketball on the home page
+  // It only shows Cricket, Kabaddi, and Basketball on the home page
   const homeSports = sports.filter(
     (sport) =>
       (sport.name && ["Cricket", "Kabaddi", "Basketball"].includes(sport.name)) ||
@@ -42,7 +42,6 @@ export default function SportsSection() {
               backgroundPosition: "center",
             }}
           >
-            {/* Gradient overlay for readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
             <div className="relative z-10 text-white p-5 pb-4">
               <h3 className="text-2xl font-bold mb-1 drop-shadow">

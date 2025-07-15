@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get a specific match by ID (for admin panel)
+// Get a specific match by ID 
 router.get("/id/:id", async (req, res) => {
   try {
     const match = await Match.findById(req.params.id);
@@ -26,14 +26,13 @@ router.get("/id/:id", async (req, res) => {
   }
 });
 
-// Add a new match (for admin panel)
+// Add a new match 
 router.post("/", authenticateToken, requireAdmin, async (req, res) => {
   try {
     const matchData = req.body;
     
     console.log('Received match data:', JSON.stringify(matchData, null, 2));
     
-    // Validate required fields
     if (!matchData.sport) {
       console.log('Validation error: Sport is missing');
       return res.status(400).json({ message: "Sport is required" });
@@ -47,7 +46,6 @@ router.post("/", authenticateToken, requireAdmin, async (req, res) => {
       return res.status(400).json({ message: "Date is required" });
     }
     
-    // Generate slug if not provided
     if (!matchData.slug) {
       matchData.slug = matchData.match.toLowerCase().replace(/\s+/g, '-');
       console.log('Generated slug:', matchData.slug);
@@ -98,7 +96,7 @@ router.post("/", authenticateToken, requireAdmin, async (req, res) => {
   }
 });
 
-// Update a match by ID (for admin panel)
+// Update a match by ID
 router.put("/:id", authenticateToken, requireAdmin, async (req, res) => {
   try {
     const match = await Match.findByIdAndUpdate(
@@ -117,7 +115,7 @@ router.put("/:id", authenticateToken, requireAdmin, async (req, res) => {
   }
 });
 
-// Delete a match by ID (for admin panel)
+// Delete a match by ID
 router.delete("/:id", authenticateToken, requireAdmin, async (req, res) => {
   try {
     const match = await Match.findByIdAndDelete(req.params.id);

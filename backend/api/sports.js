@@ -35,7 +35,7 @@ router.get("/type/:type", async (req, res) => {
   }
 });
 
-// Get upcoming sports (future dates) (Public)
+// Get upcoming sports (Public)
 router.get("/upcoming", async (req, res) => {
   try {
     const now = new Date();

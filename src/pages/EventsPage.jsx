@@ -46,7 +46,6 @@ export default function EventsPage() {
 
   return (
     <div className="pt-4 p-8 space-y-6">
-      {/* Enhanced Search & Filter Bar */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-4">
         <div className="relative w-full md:w-1/3">
           <input

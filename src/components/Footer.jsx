@@ -4,11 +4,10 @@ export default function Footer() {
   return (
     <footer className="bg-[#011f41] text-gray-100 mt-8">
       <div className="max-w-7xl mx-auto p-6 flex flex-col md:flex-row justify-between space-y-4 md:space-y-0">
-        {/* NIST University Details */}
         <div className="space-y-1">
           <h3 className="font-bold text-lg">NIST University</h3>
           <p>Institute Park, Berhampur, Odisha 761008, India</p>
-          <p>Email: contact@nistuniv.ac.in</p>
+          <p>Email: @NIST.edu</p>
           <p>Phone: +91-1234567890</p>
         </div>
 

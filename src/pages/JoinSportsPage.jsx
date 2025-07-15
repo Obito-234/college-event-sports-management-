@@ -18,7 +18,6 @@ export default function JoinSportsPage() {
       });
   }, []);
 
-  // Filter sports by search term
   const upcomingSports = sportsList.filter(
     (sport) =>
       sport.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -42,7 +41,7 @@ export default function JoinSportsPage() {
       <h1 className="text-4xl md:text-5xl font-extrabold text-center text-blue-900 drop-shadow mb-4">
         Join Upcoming Sports
       </h1>
-      {/* Search Bar like others */}
+      {/* Search Bar */}
       <div className="flex justify-center mb-6">
         <div className="relative w-full max-w-md">
           <input

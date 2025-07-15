@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 
 export default function CricketDetails({ match, onBack }) {
-  const [activeTeam, setActiveTeam] = useState('team1'); // 'team1' or 'team2'
-  const [allPlayersTeam, setAllPlayersTeam] = useState('team1'); // 'team1' or 'team2' for all players view
+  const [activeTeam, setActiveTeam] = useState('team1'); 
+  const [allPlayersTeam, setAllPlayersTeam] = useState('team1'); 
 
   const getPlayers = (team) =>
     team === 'team1'
       ? match.details.team1Players || []
       : match.details.team2Players || [];
 
-  // Helper to get top batsmen/bowlers for the team
   const getBatsmanStats = (player, team) =>
     (match.topBatsmen || []).find((b) => b.name === player.name);
   const getBowlerStats = (player, team) =>
@@ -49,14 +48,12 @@ export default function CricketDetails({ match, onBack }) {
               {match.overs?.team2 !== undefined && `Overs: ${match.overs.team2}`}
             </span>
           </div>
-          {/* Run required line */}
           {match.scores?.team1 !== undefined && match.scores?.team2 !== undefined && match.overs?.team1 !== undefined && match.overs?.team2 !== undefined && (
             (() => {
-              // Only show if second innings is in progress or completed
               const team1Score = Number(match.scores.team1);
               const team2Score = Number(match.scores.team2);
               const team2Overs = Number(match.overs.team2);
-              const totalOvers = match.totalOvers ? Number(match.totalOvers) : 50; // fallback to 50
+              const totalOvers = match.totalOvers ? Number(match.totalOvers) : 50; 
               if (team2Overs > 0 && team2Overs < totalOvers && team1Score > 0) {
                 const runsRequired = team1Score - team2Score + 1;
                 const ballsBowled = Math.floor(team2Overs) * 6 + Math.round((team2Overs % 1) * 10);
@@ -73,7 +70,6 @@ export default function CricketDetails({ match, onBack }) {
               return null;
             })()
           )}
-          {/* Match result line */}
           {match.status === 'completed' && match.result && (
             <div className="mt-4 text-center text-lg font-bold text-green-700 border-t border-green-200 pt-2">
               {match.result}
@@ -84,7 +80,6 @@ export default function CricketDetails({ match, onBack }) {
 
       {(getPlayers('team1').length > 0 || getPlayers('team2').length > 0) && (
         <div className="bg-gray-100 rounded-lg p-4 shadow mt-4">
-          {/* Toggle buttons for mobile */}
           <div className="flex gap-4 justify-center mb-4 sm:hidden">
             <button
               className={`font-bold px-4 py-1 rounded-full text-xl transition ${
@@ -151,7 +146,7 @@ export default function CricketDetails({ match, onBack }) {
               </div>
             </div>
           </div>
-          {/* Desktop: Side by side */}
+          {/* Desktop */}
           <div className="hidden sm:grid sm:grid-cols-2 sm:gap-x-8">
             {/* Team1 */}
             <div>
@@ -239,11 +234,10 @@ export default function CricketDetails({ match, onBack }) {
         </div>
       )}
 
-      {/* All Players Toggle Card */}
+      {/* All Players */}
       {(getPlayers('team1').length > 0 || getPlayers('team2').length > 0) && (
         <div className="bg-white rounded-lg p-4 shadow mt-4">
           <h2 className="text-xl font-bold mb-4 text-center">All Players</h2>
-          {/* Toggle only on mobile */}
           <div className="flex gap-4 justify-center mb-4 sm:hidden">
             <button
               className={`font-bold px-4 py-1 rounded-full text-lg transition ${
@@ -266,7 +260,6 @@ export default function CricketDetails({ match, onBack }) {
               {match.teams?.team2}
             </button>
           </div>
-          {/* Side by side on desktop, toggle on mobile */}
           <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl mx-auto">
             {/* Team 1 */}
             <div className="flex-1">
