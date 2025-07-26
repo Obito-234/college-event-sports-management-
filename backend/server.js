@@ -13,7 +13,12 @@ console.log('Env file path:', path.join(__dirname, '.env'));
 const connectDB = require('./config/database');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? 'https://your-domain.com' 
+    : 'http://localhost:3000',
+  credentials: true
+}));
 app.use(express.json());
 
 // Connect to MongoDB
