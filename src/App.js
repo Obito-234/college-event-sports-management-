@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import EventsPage from './pages/EventsPage';
@@ -6,7 +7,6 @@ import SportsPage from './pages/SportsPage';
 import SportDetails from './components/SportDetails';
 import MatchDetails from './components/MatchDetails';
 import JoinSportsPage from './pages/JoinSportsPage';
-import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminSports from './pages/AdminSports';
@@ -98,19 +98,7 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
-        <Route
-          path="/contact"
-          element={
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <ContactPage />
-            </motion.div>
-          }
-        />
+        
         
         {/* Admin Routes */}
         <Route
@@ -165,6 +153,10 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+      
+
+    
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>
   );

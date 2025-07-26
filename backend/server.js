@@ -24,7 +24,6 @@ const authRouter = require("./api/auth");
 const sportsRouter = require("./api/sports");
 const galleryRouter = require("./api/gallery");
 const eventsRouter = require("./api/events");
-const contactRouter = require("./api/contact");
 const matchesRouter = require("./api/matches");
 
 // Use routers
@@ -32,7 +31,6 @@ app.use("/api/auth", authRouter);
 app.use("/api/sports", sportsRouter);
 app.use("/api/gallery", galleryRouter);
 app.use("/api/events", eventsRouter);
-app.use("/api/contact", contactRouter);
 app.use("/api/matches", matchesRouter);
 
 const PORT = process.env.PORT || 5000;

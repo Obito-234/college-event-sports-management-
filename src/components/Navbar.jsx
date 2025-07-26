@@ -6,7 +6,7 @@ const getPageTitle = (pathname) => {
   if (pathname.startsWith("/events")) return "Events";
   if (pathname.startsWith("/sports")) return "Sports";
   if (pathname.startsWith("/join-sports")) return "Join";
-  if (pathname.startsWith("/contact")) return "Contact";
+  if (pathname.startsWith("/login")) return "Admin"; 
   return "Kurukestra";
 };
 
@@ -132,8 +132,8 @@ export default function Navbar() {
           </Link>
         </li>
         <li className="w-full">
-          <Link to="/contact" onClick={handleLinkClick} className={linkClasses("/contact") + " w-full block text-center"}>
-            Contact
+          <Link to="/login" onClick={handleLinkClick} className={linkClasses("/login") + " w-full block text-center"}>
+            Admin
           </Link>
         </li>
       </ul>
